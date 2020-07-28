@@ -32,8 +32,9 @@ void damerau_levenshtein(std::vector<int> *currentRow,
         }
     }
 
+    auto frequency = node->frequency;
     if ((*currentRow)[request.length()] <= maxDistance && node->frequency > 0)
-        results->push_back(std::make_tuple(prefix, node->frequency, (*currentRow)[request.length()]));
+        results->push_back(std::make_tuple(prefix, frequency, (*currentRow)[request.length()]));
 }
 
 
