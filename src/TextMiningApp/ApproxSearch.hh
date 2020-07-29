@@ -19,8 +19,8 @@
  *
  * @param is the stream of the dictionary
  * @param request the word we want to approximate
- * @param maxDistance the distance of approximation
+ * @param max_distance the distance of approximation
  */
-void approx_search(std::ifstream &is, std::string request, int maxDistance);
+void approx_search(std::ifstream &is, std::string request, int max_distance);
 
 #endif //AUTOCORRECT_APPROXSEARCH_HH

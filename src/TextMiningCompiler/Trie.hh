@@ -33,18 +33,18 @@ public:
     /**
      * @brief frequency getter
      */
-    int getFrequency() const;
+    int get_frequency() const;
     /**
      * @brief children getter
      */
-    const std::map<char, Trie *> &getChildren() const;
+    const std::map<char, Trie *> &get_children() const;
     /**
      * @brief single child getter from a key
      *
      * @param key the key to find the node in the map
      * @return the node
      */
-    Trie *getChild(char key);
+    Trie *get_child(char key);
 
     /**
      * @brief given a frequency and a word, insert it in the trie

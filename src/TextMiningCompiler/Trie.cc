@@ -1,10 +1,10 @@
 #include "Trie.hh"
 
-int Trie::getFrequency() const {
+int Trie::get_frequency() const {
     return frequency_;
 }
 
-const std::map<char, Trie *> &Trie::getChildren() const {
+const std::map<char, Trie *> &Trie::get_children() const {
     return children_;
 }
 
@@ -14,7 +14,7 @@ void Trie::insert(std::string word, int frequency) {
         return;
     }
     char current = word[0];
-    Trie *child = this->getChild(current);
+    Trie *child = this->get_child(current);
     if (child == NULL) {
         Trie *new_node = new Trie();
         auto pair = std::pair<char, Trie*>(current,new_node);
@@ -26,7 +26,7 @@ void Trie::insert(std::string word, int frequency) {
     }
 }
 
-Trie *Trie::getChild(char key) {
+Trie *Trie::get_child(char key) {
     auto child = this->children_.find(key);
     if (child != this->children_.end())
         return child->second;

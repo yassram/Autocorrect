@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
     }
 
     Trie *root = build(argv[1]);
-    dumpToDisk(*root, argv[2]);
+    dump_to_disk(*root, argv[2]);
 
     delete root;
     return 0;
