@@ -22,13 +22,13 @@ echo "[INFO] Compiling words.txt..."
 "../TextMiningCompiler" ../words.txt ../dict.bin
 
 echo "[INFO] REF compiling words.txt..."
-"../${path_to_ref}/TextMiningCompiler" ../words.txt ../ref_dict.bin > /dev/null
+"../${path_to_ref}/refTextMiningCompiler" ../words.txt ../ref_dict.bin > /dev/null
 
 for test_file in ../tests/test_files/*
 do
 	cat $test_file
 	cat $test_file | "../TextMiningApp" ../dict.bin > .f1
-	cat $test_file | "../${path_to_ref}/TextMiningApp" ../ref_dict.bin > .ref 2> /dev/null
+	cat $test_file | "../${path_to_ref}/refTextMiningApp" ../ref_dict.bin > .ref 2> /dev/null
 	diffval=$(diff -q .f1 .ref)
 	if [ "$diffval" = "" ] 
 	then
