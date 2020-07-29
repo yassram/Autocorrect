@@ -39,3 +39,7 @@ words.txt
 *.bin
 TextMiningCompiler
 TextMiningApp
+
+doc/*
+!doc/Doxyfile.in
+!doc/main_page.md
