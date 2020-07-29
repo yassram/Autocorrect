@@ -10,15 +10,18 @@ int main(int argc, char const *argv[])
     }
 
     std::ifstream is(argv[1], std::ios::binary);
+    std::string cmd;
     std::string request;
     int distance;
-    std::cin >> request;
-    while(request == "approx" && is.is_open()) {
+    while(is.is_open()) {
+        std::cin >> cmd;
+        if (cmd != "approx" )
+            break;
         std::cin >> distance;
         std::cin >> request;
         approx_search(is, request, distance);
         is.seekg(0);
-        std::cin >> request;
+        cmd = "";
     }
 
 	return 0;

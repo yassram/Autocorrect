@@ -11,7 +11,7 @@
 /// \return
 Trie* build(std::string pathToFile);
 
-/// 
+///
 /// \param trie
 /// \param binaryPath
 void dumpToDisk(const Trie &trie, std::string binaryPath);
