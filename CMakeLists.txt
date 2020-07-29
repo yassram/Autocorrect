@@ -19,3 +19,7 @@ add_executable(TextMiningApp
         src/TextMiningApp/ApproxSearch.cc
         src/TextMiningApp/ApproxSearch.hh
         src/common/DumpableNode.hh)
+
+add_custom_target(check
+        COMMAND ${CMAKE_BINARY_DIR}/../tests/testsuite.sh
+        DEPENDS TextMiningApp TextMiningCompiler)
