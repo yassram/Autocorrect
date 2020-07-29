@@ -68,6 +68,10 @@ sh$ firefox html/index.html
 ...
 ```
 
+## Authors
+- Yassir Ramdani: yassir.ramdani@epita.fr
+- Mamoune El Habbari: mamoune.el-habbari@epita.fr
+
 ## Q&A?
 
 ### The architecture ?
