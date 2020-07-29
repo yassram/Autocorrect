@@ -11,15 +11,14 @@ private:
 
 public:
     Trie(){}
-    ~Trie(){}
+    ~Trie(){
+        for(auto it = children_.begin(); it != children_.end(); ++it)
+            delete it->second;
+    }
 
     int getFrequency() const;
 
     const std::map<char, Trie *> &getChildren() const;
-
-    void setFrequency(int frequency);
-
-    void setChildren(const std::map<char, Trie *> &children);
 
     Trie *getChild(char key);
 

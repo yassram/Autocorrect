@@ -8,14 +8,6 @@ const std::map<char, Trie *> &Trie::getChildren() const {
     return children_;
 }
 
-void Trie::setFrequency(int frequency) {
-    frequency_ = frequency;
-}
-
-void Trie::setChildren(const std::map<char, Trie *> &children) {
-    children_ = children;
-}
-
 void Trie::insert(std::string word, int frequency) {
     if (word == "") {
         this->frequency_ = frequency;

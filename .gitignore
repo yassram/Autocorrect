@@ -36,3 +36,6 @@ build
 .idea
 cmake-build-debug
 words.txt
+*.bin
+TextMiningCompiler
+TextMiningApp
