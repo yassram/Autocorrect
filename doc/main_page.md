@@ -74,18 +74,32 @@ sh$ firefox html/index.html
 
 ## Q&A?
 
-### The architecture ?
+### Design Choice
+The project can be divided into two distinct parts: the compiler and the app.
+For the compiler part, we chose to use a classic Trie data structure to rearrange the word dictionary. The compiler does only one thing: from a dictionary file, it extracts all the words as well as their frequencies and then it inserts them into the Trie. This Trie is then compiled into a binary file where instead of pointers we use offsets that indicate where a subtrie ends. for every node of the Trie, four pieces of information are coded into the binary file: the value of the node, the frequency of the word (if a word is formed), the number of children and the offset to the next node. In the binary file, the children of a node are situated just after it.
+As for the app, the binary file is set up into a stream and we extract the information we compiled. Given a word and a distance, we run through the file and determine which words may or may not be retained using the Damerau-Levenshtein algorithm. This words are then displayed in the standard output in a JSON format.
 
-### Testing ?
+### Testing
+We created a testsuite that we added to the project. It does a simple diff between the output of the ref and the output of our own program.
+On top of that we tested that the app does not use more than 512MB of RAM as well as tested how long the compilation takes and how long it takes to compute the approximate matches of the requested word and it turns out that our program is faster than the ref.
 
-### Avez-vous détecté des cas où la correction par distance ne fonctionnait pas (même avec une distance élevée) ?
+### Cases where distance-based spell checking does not work
+There are cases where the correct words do not exist in our dictionary and thus obviously cannot be suggested by the program.
+There are also cases where the correct words sound the same phonetically but are written substantially differently and so even with a high distance they are not detected.
 
-### Data structure
-Trie ou Patricia trie
-PK ? ..
+### Data Structure
+In this project we used a Trie data structure. We chose a classic Trie instead of a Patricia Trie because it was easier to manipulate, easier to implement and it allowed us to focus our effort into the App.
 
-### Proposez un réglage automatique de la distance pour un programme qui prend juste une chaîne de caractères en entrée, donner le processus d’évaluation ainsi que les résultats
+### Automatic Distance Setting
+If we consider very short words with for example 2 our 3 letters, it would make very little sense to choose a distance of 3. Obviously, the distance should be based on the number of letters in the word. A good distance would be: distance = floor(len(word) / 3)
 
-### Improving the preformance ?
+### Improving Performance
+When it comes to the app, we have pretty good performances since we measured faster timings than the ref.
+However there are still several areas we could be improving on. First, using a more compact data structure such as a Patricia Tree would greatly improve resource usage. Furthermore, We can also think about parallelizing seeing as how a tree data structure can be divided into its branches. Finally, some branches are not worth checking when you compare its length to the length of the word we are currently checking.
 
-### Que manque-t-il à votre correcteur orthographique pour qu’il soit à l’état de l’art ?
+### A State-Of-The-Art Spell Checker
+A state-of-the-art spell checker does many things that our program does not:
+- taking into account keyboard mistakes
+- taking into account accents
+- taking into account grammar errors
+- taking into account phonetical errors
