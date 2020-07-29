@@ -4,6 +4,9 @@
 #include <map>
 #include <string>
 
+///
+///
+///
 class Trie {
 private:
     int frequency_ = 0;
@@ -17,13 +20,13 @@ public:
     }
 
     int getFrequency() const;
-
     const std::map<char, Trie *> &getChildren() const;
-
     Trie *getChild(char key);
 
+///
+/// \param word
+/// \param frequency
     void insert(std::string word, int frequency);
-
 };
 
 

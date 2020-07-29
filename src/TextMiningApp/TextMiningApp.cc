@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 #include "ApproxSearch.hh"
 
 int main(int argc, char const *argv[])
