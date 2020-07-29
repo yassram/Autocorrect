@@ -6,7 +6,7 @@
 #include <iostream>
 #include <numeric>
 #include <algorithm>
-#include "../../common/DumpableNode.hh"
+#include "../common/DumpableNode.hh"
 
 void approx_search(std::ifstream &is, std::string value, int maxDistance);
 

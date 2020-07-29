@@ -4,17 +4,18 @@ project(Autocorrect)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-Wall -O3")
+SET(EXECUTABLE_OUTPUT_PATH ../)
 
 add_executable(TextMiningCompiler
-        TextMiningCompiler/src/TextMiningCompiler.cc
-        TextMiningCompiler/src/Trie.cc
-        TextMiningCompiler/src/Trie.hh
-        TextMiningCompiler/src/TrieFactory.hh
-        TextMiningCompiler/src/TrieFactory.cc
-        common/DumpableNode.hh)
+        src/TextMiningCompiler/TextMiningCompiler.cc
+        src/TextMiningCompiler/Trie.cc
+        src/TextMiningCompiler/Trie.hh
+        src/TextMiningCompiler/TrieFactory.hh
+        src/TextMiningCompiler/TrieFactory.cc
+        src/common/DumpableNode.hh)
 
 add_executable(TextMiningApp
-        TextMiningApp/src/TextMiningApp.cc
-        TextMiningApp/src/ApproxSearch.cc
-        TextMiningApp/src/ApproxSearch.hh
-        common/DumpableNode.hh)
+        src/TextMiningApp/TextMiningApp.cc
+        src/TextMiningApp/ApproxSearch.cc
+        src/TextMiningApp/ApproxSearch.hh
+        src/common/DumpableNode.hh)

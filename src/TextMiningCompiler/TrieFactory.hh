@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 #include "Trie.hh"
-#include "../../common/DumpableNode.hh"
+#include "../common/DumpableNode.hh"
 
 Trie* build(std::string pathToFile);
 
