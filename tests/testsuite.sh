@@ -19,10 +19,10 @@ else
 fi
 
 echo "[INFO] Compiling words.txt..."
-"../TextMiningCompiler" ../words.txt ../dict.bin
+"../TextMiningCompiler" ../resources/words.txt ../dict.bin
 
 echo "[INFO] REF compiling words.txt..."
-"../${path_to_ref}/refTextMiningCompiler" ../words.txt ../ref_dict.bin > /dev/null
+"../${path_to_ref}/refTextMiningCompiler" ../resources/words.txt ../ref_dict.bin > /dev/null
 
 for test_file in ../tests/test_files/*
 do
