@@ -42,7 +42,7 @@ sh$ echo "approx 0 test\napprox 1 test\napprox 2 test" | ./TextMiningApp path/to
 ```
 - Using the output of a cat command:
 ``` sh
-sh$ cat test.txt | ./TextMininApp /path/to/dict.bin
+sh$ cat test.txt | ./TextMiningApp /path/to/dict.bin
 ```
 - Run the testsuite:
 ``` sh
